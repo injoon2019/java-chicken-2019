@@ -33,7 +33,7 @@ public class Order {
             String menuName = MenuRepository.getMenuName(menuNumber);
             int amount = menuMap.get(menuNumber);
             int price = MenuRepository.getPrice(menuNumber);
-            result += menuName + " " + amount + " " + price;
+            result += menuName + " " + amount + " " + price + "\n";
         }
         return result;
     }

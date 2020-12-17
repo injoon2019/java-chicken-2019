@@ -50,10 +50,10 @@ public class MenuRepository {
         return null;
     }
 
-    public static List<String> getMenuNumbers() {
-        List<String> menuNumbers = new ArrayList<>();
-        for (Menu menu : menus ) {
-            menuNumbers.add(menu.getName());
+    public static List<Integer> getMenuNumbers() {
+        List<Integer> menuNumbers = new ArrayList<>();
+        for (Menu menu : menus) {
+            menuNumbers.add(menu.getNumber());
         }
         return menuNumbers;
     }

@@ -34,4 +34,8 @@ public class Menu {
     public Category getCategory() {
         return this.category;
     }
+
+    public int getNumber() {
+        return this.number;
+    }
 }
