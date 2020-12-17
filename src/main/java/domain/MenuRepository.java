@@ -39,4 +39,13 @@ public class MenuRepository {
         }
         return 0;
     }
+
+    public static Category getCategory(int number) {
+        for (Menu menu : menus) {
+            if (menu.isSameNumber(number)) {
+                return menu.getCategory();
+            }
+        }
+        return null;
+    }
 }

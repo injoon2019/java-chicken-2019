@@ -29,4 +29,8 @@ public class Menu {
     public int getPrice() {
         return this.price;
     }
+
+    public Category getCategory() {
+        return this.category;
+    }
 }

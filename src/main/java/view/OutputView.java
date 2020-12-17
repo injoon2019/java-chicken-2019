@@ -6,6 +6,7 @@ import domain.Table;
 import java.util.List;
 
 public class OutputView {
+
     private static final String TOP_LINE = "┌ ─ ┐";
     private static final String TABLE_FORMAT = "| %s |";
     private static final String BOTTOM_LINE = "└ ─ ┘";
@@ -84,5 +85,11 @@ public class OutputView {
                 table.printOrders();
             }
         }
+    }
+
+    public static void printFinalPrice(int price) {
+        System.out.println("## 최종 결제할 금액");
+        System.out.println(price + "원");
+        System.out.println();
     }
 }

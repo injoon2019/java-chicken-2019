@@ -66,4 +66,17 @@ public class InputView {
             return inputTableNumber();
         }
     }
+
+    public static int inputPayMethod(int tableNumber) {
+        System.out.println("## " + tableNumber + "번 테이블의 결제를 진행합니다");
+        System.out.println("## 신용카드는 1번 현금은 2번");
+        String payMethod = scanner.nextLine().trim();
+        try {
+            InputValidator.validatePayMethod(payMethod);
+            return Integer.parseInt(payMethod);
+        } catch (IllegalArgumentException iae) {
+            System.out.println(ERROR_PREFIX +  iae.getMessage());
+            return inputPayMethod(tableNumber);
+        }
+    }
 }

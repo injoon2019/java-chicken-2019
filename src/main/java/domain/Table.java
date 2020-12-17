@@ -32,4 +32,12 @@ public class Table {
         System.out.println(order);
         System.out.println();
     }
+
+    public int getChickenCount() {
+        return order.getChickenCount();
+    }
+
+    public int getTotalPrice() {
+        return order.getTotalPrice();
+    }
 }
