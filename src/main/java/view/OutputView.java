@@ -50,5 +50,4 @@ public class OutputView {
         System.out.println(TURN_OFF_OPTION);
         System.out.println();
     }
-
 }

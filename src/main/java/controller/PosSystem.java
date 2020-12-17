@@ -15,12 +15,14 @@ public class PosSystem {
     private static final String OPTION_THREE = "3";
 
     private final List<Table> tables;
+    private final List<Menu> menus;
     private String userOption = "";
-    private final int tableNumber;
-    
+    private OrderSystem orderSystem;
+
     public PosSystem() {
         tables = TableRepository.tables();
-        tableNumber = InputView.inputTableNumber();
+        menus = MenuRepository.menus();
+        orderSystem = new OrderSystem(tables, menus);
     }
 
     public void run() {
@@ -30,15 +32,13 @@ public class PosSystem {
             runUserOption(userOption);
         }
 
-
-        OutputView.printTables(tables);
         final List<Menu> menus = MenuRepository.menus();
         OutputView.printMenus(menus);
     }
 
     private void runUserOption(String userOption) {
         if (userOption.equals(OPTION_ONE)) {
-
+            orderSystem.run();
         }
         if (userOption.equals(OPTION_TWO)) {
 
