@@ -36,12 +36,6 @@ public class OutputView {
         System.out.println();
     }
 
-    private static void printLineToPay(final String line, final int count) {
-        for (int index = 0; index < count; index++) {
-            System.out.print(line);
-        }
-    }
-
     private static void printTableNumbers(final List<Table> tables) {
         for (final Table table : tables) {
             System.out.printf(TABLE_FORMAT, table);

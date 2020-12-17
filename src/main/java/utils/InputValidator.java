@@ -1,9 +1,12 @@
 package utils;
 
+import domain.TableRepository;
+
 public class InputValidator {
 
     private static final String OPTION_ERROR_MESSAGE = "1~3 사이의 숫자를 입력하세요";
     private static final String ORDER_ERROR_MESSAGE = "0~99 사이의 숫자를 입력하세요";
+    private static final String TABLE_ERROR_MESSAGE = "저장되어 있는 테이블 숫자를 입력하세요";
     private static final String PAY_METHOD_ERROR_MESSAGE = "1 또는 2를 입력하세요";
     private static final int OPTION_MIN = 1;
     private static final int OPTION_MAX = 3;
@@ -25,9 +28,12 @@ public class InputValidator {
 
     public static void validateTableNumber(String tableNumber) {
         try {
-            Integer.parseInt(tableNumber);
+            int intTableNumber = Integer.parseInt(tableNumber);
+            if (!TableRepository.getTableNumbers().contains(intTableNumber)) {
+                throw new IllegalArgumentException(TABLE_ERROR_MESSAGE);
+            }
         } catch (Exception e) {
-            throw new IllegalArgumentException(OPTION_ERROR_MESSAGE);
+            throw new IllegalArgumentException(TABLE_ERROR_MESSAGE);
         }
     }
 

@@ -44,4 +44,8 @@ public class Table {
     public void clearOrder() {
         order.clearOrder();
     }
+
+    public int getTableNumber() {
+        return this.number;
+    }
 }
