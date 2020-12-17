@@ -35,7 +35,7 @@ public class InputView {
         System.out.println("##등록할 메뉴를 선택하세요");
         String menuNumber = scanner.nextLine().trim();
         try {
-            InputValidator.validateUserOption(menuNumber);
+            InputValidator.validateMenuNumber(menuNumber);
             return Integer.parseInt(menuNumber);
         } catch (IllegalArgumentException iae) {
             System.out.println(ERROR_PREFIX + iae.getMessage());
@@ -47,11 +47,23 @@ public class InputView {
         System.out.println("##메뉴의 수량을 입력하세요");
         String menuAmount = scanner.nextLine().trim();
         try {
-            InputValidator.validateUserOption(menuAmount);
+            InputValidator.validateMenuAmount(menuAmount);
             return Integer.parseInt(menuAmount);
         } catch (IllegalArgumentException iae) {
             System.out.println(ERROR_PREFIX + iae.getMessage());
             return inputMenuAmount();
+        }
+    }
+
+    public static int inputTableNumberToPay() {
+        System.out.println("## 테이블을 선택하세요.");
+        String tableNumber = scanner.nextLine().trim();
+        try {
+            InputValidator.validateTableNumber(tableNumber);
+            return Integer.parseInt(tableNumber);
+        } catch (IllegalArgumentException iae) {
+            System.out.println(ERROR_PREFIX + iae.getMessage());
+            return inputTableNumber();
         }
     }
 }

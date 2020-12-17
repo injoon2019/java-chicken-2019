@@ -25,4 +25,8 @@ public class Menu {
     public boolean isSameNumber(int number) {
         return number == this.number;
     }
+
+    public int getPrice() {
+        return this.price;
+    }
 }

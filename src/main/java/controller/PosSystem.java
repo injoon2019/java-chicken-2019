@@ -18,11 +18,13 @@ public class PosSystem {
     private final List<Menu> menus;
     private String userOption = "";
     private OrderSystem orderSystem;
+    private PaySystem paySystem;
 
     public PosSystem() {
         tables = TableRepository.tables();
         menus = MenuRepository.menus();
         orderSystem = new OrderSystem(tables, menus);
+        paySystem = new PaySystem(tables, menus);
     }
 
     public void run() {
@@ -41,7 +43,7 @@ public class PosSystem {
             orderSystem.run();
         }
         if (userOption.equals(OPTION_TWO)) {
-
+            paySystem.run();
         }
     }
 }

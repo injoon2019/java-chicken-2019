@@ -36,6 +36,12 @@ public class OutputView {
         System.out.println();
     }
 
+    private static void printLineToPay(final String line, final int count) {
+        for (int index = 0; index < count; index++) {
+            System.out.print(line);
+        }
+    }
+
     private static void printTableNumbers(final List<Table> tables) {
         for (final Table table : tables) {
             System.out.printf(TABLE_FORMAT, table);
@@ -49,5 +55,32 @@ public class OutputView {
         System.out.println(PAY_OPTION);
         System.out.println(TURN_OFF_OPTION);
         System.out.println();
+    }
+
+    public static void printTablesToPay(final List<Table> tables) {
+        System.out.println("## 테이블 목록");
+        final int size = tables.size();
+        printLine(TOP_LINE, size);
+        printTableNumbers(tables);
+        printBottomLineToPay(tables, BOTTOM_LINE);
+    }
+
+    public static void printBottomLineToPay(List<Table> tables, final String line) {
+        for (Table table : tables) {
+            if (table.hasOrder()) {
+                printLineToPay(BOTTOM_LINE_AFTER_ORDER, 1);
+            } else {
+                printLineToPay(BOTTOM_LINE, 1);
+            }
+        }
+        System.out.println();
+    }
+
+    public static void printOrders(List<Table> tables, int tableNumber) {
+        for (Table table : tables) {
+            if (table.isSameNumber(tableNumber)) {
+                table.printOrders();
+            }
+        }
     }
 }

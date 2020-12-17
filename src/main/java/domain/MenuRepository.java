@@ -30,4 +30,13 @@ public class MenuRepository {
         }
         return "번호가 없습니다";
     }
+
+    public static int getPrice(int number) {
+        for (Menu menu : menus) {
+            if (menu.isSameNumber(number)) {
+                return menu.getPrice();
+            }
+        }
+        return 0;
+    }
 }

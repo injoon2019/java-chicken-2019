@@ -21,4 +21,15 @@ public class Table {
     public boolean addOrder(int menuNumber, int menuAmount) {
         return order.addOrder(menuNumber, menuAmount);
     }
+
+    public boolean hasOrder() {
+        return order.isOrdered();
+    }
+
+    public void printOrders() {
+        System.out.println("##주문 내역");
+        System.out.println("메뉴 수량 금액");
+        System.out.println(order);
+        System.out.println();
+    }
 }
