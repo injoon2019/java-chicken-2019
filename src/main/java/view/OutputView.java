@@ -66,13 +66,15 @@ public class OutputView {
     }
 
     public static void printBottomLineToPay(List<Table> tables, final String line) {
+        StringBuilder stringBuilder = new StringBuilder();
         for (Table table : tables) {
             if (table.hasOrder()) {
-                printLineToPay(BOTTOM_LINE_AFTER_ORDER, 1);
-            } else {
-                printLineToPay(BOTTOM_LINE, 1);
+                stringBuilder.append(BOTTOM_LINE_AFTER_ORDER);
+                continue;
             }
+            stringBuilder.append(BOTTOM_LINE);
         }
+        System.out.println(stringBuilder.toString());
         System.out.println();
     }
 
