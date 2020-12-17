@@ -7,19 +7,20 @@ import view.InputView;
 import view.OutputView;
 
 public class OrderSystem {
+
     private final List<Table> tables;
     private final List<Menu> menus;
 
     public OrderSystem(List<Table> tables, List<Menu> menus) {
         this.tables = tables;
-        this.menus  = menus;
+        this.menus = menus;
     }
 
     public void run() {
         OutputView.printTables(tables);
         int tableNumber = InputView.inputTableNumber();
         OutputView.printMenus(menus);
-        int menuNumber =InputView.inputMenuNumber();
+        int menuNumber = InputView.inputMenuNumber();
         int menuAmount = InputView.inputMenuAmount();
         orderRegister(tableNumber, menuNumber, menuAmount);
     }

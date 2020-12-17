@@ -2,7 +2,6 @@ package view;
 
 import domain.Menu;
 import domain.Table;
-
 import java.util.List;
 
 public class OutputView {

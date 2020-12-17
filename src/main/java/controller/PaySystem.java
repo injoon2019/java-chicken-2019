@@ -18,14 +18,14 @@ public class PaySystem {
 
     public PaySystem(List<Table> tables, List<Menu> menus) {
         this.tables = tables;
-        this.menus  = menus;
+        this.menus = menus;
     }
 
     public void run() {
         OutputView.printTablesToPay(tables);
         int tableNumber = InputView.inputTableNumberToPay();
         OutputView.printOrders(tables, tableNumber);
-        int payMethod  = InputView.inputPayMethod(tableNumber);
+        int payMethod = InputView.inputPayMethod(tableNumber);
         int priceTotal = calculatePriceTotal(tableNumber, payMethod);
         OutputView.printFinalPrice(priceTotal);
     }
@@ -36,6 +36,7 @@ public class PaySystem {
         int chickenCount = table.getChickenCount();
         totalPrice = discountChicken(totalPrice, chickenCount);
         totalPrice = discountPayMethod(totalPrice, payMethod);
+        clearOrders(table);
         return totalPrice;
     }
 
@@ -44,6 +45,10 @@ public class PaySystem {
             return (int) (totalPrice * (1 - CHICKEN_DISCOUNT_RATE));
         }
         return totalPrice;
+    }
+
+    public void clearOrders(Table table) {
+        table.clearOrder();
     }
 
     public int discountPayMethod(int totalPrice, int payMethod) {

@@ -4,6 +4,7 @@ import java.util.Scanner;
 import utils.InputValidator;
 
 public class InputView {
+
     private static final String ERROR_PREFIX = "[ERROR] :";
     private static final Scanner scanner = new Scanner(System.in);
 
@@ -75,7 +76,7 @@ public class InputView {
             InputValidator.validatePayMethod(payMethod);
             return Integer.parseInt(payMethod);
         } catch (IllegalArgumentException iae) {
-            System.out.println(ERROR_PREFIX +  iae.getMessage());
+            System.out.println(ERROR_PREFIX + iae.getMessage());
             return inputPayMethod(tableNumber);
         }
     }

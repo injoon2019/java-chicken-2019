@@ -40,4 +40,8 @@ public class Table {
     public int getTotalPrice() {
         return order.getTotalPrice();
     }
+
+    public void clearOrder() {
+        order.clearOrder();
+    }
 }

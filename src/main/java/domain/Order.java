@@ -5,10 +5,9 @@ import java.util.Iterator;
 
 public class Order {
 
-    private static final int CHIKEN_DISCOUNT_NUMBER = 10;
     private HashMap<Integer, Integer> menuMap;
 
-    public Order(){
+    public Order() {
         this.menuMap = new HashMap<>();
     }
 
@@ -30,7 +29,7 @@ public class Order {
         String result = "";
         Iterator<Integer> keys = menuMap.keySet().iterator();
         while (keys.hasNext()) {
-            int menuNumber = (int)keys.next();
+            int menuNumber = keys.next();
             String menuName = MenuRepository.getMenuName(menuNumber);
             int amount = menuMap.get(menuNumber);
             int price = MenuRepository.getPrice(menuNumber);
@@ -43,7 +42,7 @@ public class Order {
         int chickenCount = 0;
         Iterator<Integer> keys = menuMap.keySet().iterator();
         while (keys.hasNext()) {
-            int menuNumber = (int)keys.next();
+            int menuNumber = keys.next();
             int amount = menuMap.get(menuNumber);
             Category category = MenuRepository.getCategory(menuNumber);
             if (category == Category.CHICKEN) {
@@ -57,11 +56,15 @@ public class Order {
         int totalPrice = 0;
         Iterator<Integer> keys = menuMap.keySet().iterator();
         while (keys.hasNext()) {
-            int menuNumber = (int)keys.next();
+            int menuNumber = keys.next();
             int amount = menuMap.get(menuNumber);
             int price = MenuRepository.getPrice(menuNumber);
             totalPrice = price * amount;
         }
         return totalPrice;
+    }
+
+    public void clearOrder() {
+        this.menuMap = new HashMap<>();
     }
 }
