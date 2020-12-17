@@ -21,4 +21,13 @@ public class MenuRepository {
     public static List<Menu> menus() {
         return Collections.unmodifiableList(menus);
     }
+
+    public static String getMenuName(int number) {
+        for (Menu menu : menus) {
+            if (menu.isSameNumber(number)) {
+                return menu.getName();
+            }
+        }
+        return "번호가 없습니다";
+    }
 }

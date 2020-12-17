@@ -19,6 +19,16 @@ public class OrderSystem {
         OutputView.printTables(tables);
         int tableNumber = InputView.inputTableNumber();
         OutputView.printMenus(menus);
-        int menuNumber =
+        int menuNumber =InputView.inputMenuNumber();
+        int menuAmount = InputView.inputMenuAmount();
+        orderRegister(tableNumber, menuNumber, menuAmount);
+    }
+
+    public void orderRegister(int tableNumber, int menuNumber, int menuAmount) {
+        for (Table table : tables) {
+            if (table.isSameNumber(tableNumber)) {
+                table.addOrder(menuNumber, menuAmount);
+            }
+        }
     }
 }
