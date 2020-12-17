@@ -9,6 +9,11 @@ public class OutputView {
     private static final String TOP_LINE = "┌ ─ ┐";
     private static final String TABLE_FORMAT = "| %s |";
     private static final String BOTTOM_LINE = "└ ─ ┘";
+    private static final String BOTTOM_LINE_AFTER_ORDER = "└ $ ┘";
+    private static final String MAIN_TITLE = "##메인화면";
+    private static final String REGISTER_ORDER_OPTION = "1 - 주문등록";
+    private static final String PAY_OPTION = "2 - 결제하기";
+    private static final String TURN_OFF_OPTION = "3 - 프로그램 종료";
 
     public static void printTables(final List<Table> tables) {
         System.out.println("## 테이블 목록");
@@ -37,4 +42,13 @@ public class OutputView {
         }
         System.out.println();
     }
+
+    public static void printMainScreen() {
+        System.out.println(MAIN_TITLE);
+        System.out.println(REGISTER_ORDER_OPTION);
+        System.out.println(PAY_OPTION);
+        System.out.println(TURN_OFF_OPTION);
+        System.out.println();
+    }
+
 }
