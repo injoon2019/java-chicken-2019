@@ -33,9 +33,6 @@ public class PosSystem {
             userOption = InputView.askUserOption();
             runUserOption(userOption);
         }
-
-        final List<Menu> menus = MenuRepository.menus();
-        OutputView.printMenus(menus);
     }
 
     private void runUserOption(String userOption) {

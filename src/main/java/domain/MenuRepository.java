@@ -49,4 +49,12 @@ public class MenuRepository {
         }
         return null;
     }
+
+    public static List<String> getMenuNumbers() {
+        List<String> menuNumbers = new ArrayList<>();
+        for (Menu menu : menus ) {
+            menuNumbers.add(menu.getName());
+        }
+        return menuNumbers;
+    }
 }

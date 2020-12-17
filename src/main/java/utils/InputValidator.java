@@ -1,13 +1,15 @@
 package utils;
 
+import domain.MenuRepository;
 import domain.TableRepository;
 
 public class InputValidator {
 
     private static final String OPTION_ERROR_MESSAGE = "1~3 사이의 숫자를 입력하세요";
-    private static final String ORDER_ERROR_MESSAGE = "0~99 사이의 숫자를 입력하세요";
+    private static final String AMOUNT_ERROR_MESSAGE = "0~99 사이의 숫자를 입력하세요";
     private static final String TABLE_ERROR_MESSAGE = "저장되어 있는 테이블 숫자를 입력하세요";
     private static final String PAY_METHOD_ERROR_MESSAGE = "1 또는 2를 입력하세요";
+    private static final String MENU_NUMBER_ERROR_MESSAGE = "저장되어 있는 메뉴를 입력하세요";
     private static final int OPTION_MIN = 1;
     private static final int OPTION_MAX = 3;
     private static final int ORDER_MAX = 99;
@@ -41,21 +43,21 @@ public class InputValidator {
         try {
             int intOrderAmount = Integer.parseInt(orderAmount);
             if (intOrderAmount < ORDER_MIN || intOrderAmount > ORDER_MAX) {
-                throw new IllegalArgumentException(ORDER_ERROR_MESSAGE);
+                throw new IllegalArgumentException(AMOUNT_ERROR_MESSAGE);
             }
         } catch (Exception e) {
-            throw new IllegalArgumentException(ORDER_ERROR_MESSAGE);
+            throw new IllegalArgumentException(AMOUNT_ERROR_MESSAGE);
         }
     }
 
-    public static void validateMenuNumber(String orderAmount) {
+    public static void validateMenuNumber(String menuNumber) {
         try {
-            int intOrderAmount = Integer.parseInt(orderAmount);
-            if (intOrderAmount < ORDER_MIN || intOrderAmount > ORDER_MAX) {
-                throw new IllegalArgumentException(ORDER_ERROR_MESSAGE);
+            int intMenuNumber = Integer.parseInt(menuNumber);
+            if (!MenuRepository.getMenuNumbers().contains(intMenuNumber)) {
+                throw new IllegalArgumentException(MENU_NUMBER_ERROR_MESSAGE);
             }
         } catch (Exception e) {
-            throw new IllegalArgumentException(ORDER_ERROR_MESSAGE);
+            throw new IllegalArgumentException(MENU_NUMBER_ERROR_MESSAGE);
         }
     }
 
